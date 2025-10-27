@@ -18,7 +18,8 @@
     "react-lazy-load-image-component": "^1.6.3",
     "react-router": "^7.9.4",
     "react-router-dom": "^7.9.4",
-    "router": "^2.2.0"
+    "router": "^2.2.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

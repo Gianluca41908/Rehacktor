@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage"
 import GenrePage from "../pages/GenrePage"
 import GamePage from "../pages/GamePage"
 import SearchPage from "../pages/SearchPage"
+import RegisterPage from "../pages/RegisterPage"
 
 function Routing(){
     return (
@@ -16,6 +17,7 @@ function Routing(){
                     <Route path="/games/:genre" element={<GenrePage />} />
                     <Route path="/games/:slug/:id" element={<GamePage />} />
                     <Route path="/search" element={<SearchPage />} />
+                    <Route path="/register" element={<RegisterPage />}/>
                 </Route>
             </Routes>
         </BrowserRouter>
