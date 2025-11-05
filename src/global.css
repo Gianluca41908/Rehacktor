@@ -36,9 +36,13 @@
 }
 
 .drop {
-    width: 280px;
+    width: 250px;
 }
 
 .drop>button {
     width: 100%;
+}
+
+.drop .dropdown-menu {
+    z-index: 2000 !important;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import CardGame from "../components/CardGame";
 import useFetchSolution from "../hook/useFetchSolution";
+import GenresDropdown from "../components/GenresDropdown";
 
 function HomePage() {
 
@@ -10,6 +11,9 @@ function HomePage() {
     return (
         <div>
             <h1 className="text-light text-center py-3 mt-2">Tutti i giochi</h1>
+            <div className="d-flex justify-content-center d-md-none">
+                <GenresDropdown />
+            </div>
             <div className="container-fluid pe-4">
                 {loading &&
                     <div className="d-flex justify-content-center py-5">

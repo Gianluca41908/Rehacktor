@@ -9,7 +9,7 @@ function Layout() {
             <Header />
             <div className="container-fluid flex-grow-1 d-flex flex-column" style={{ flex: 1, minHeight: 0 }}>
                 <div className="row flex-grow-1" style={{ display: "flex", flex: 1, minHeight: 0 }}>
-                    <Sidebar />
+                        <Sidebar />
                     <div className="col-md-10 px-0 mt-5">
                         <Outlet />
                     </div>

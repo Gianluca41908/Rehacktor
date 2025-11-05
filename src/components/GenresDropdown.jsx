@@ -32,7 +32,7 @@ function GenresDropdown() {
 
     return (
         <div>
-            <DropdownButton className="pt-4 drop" menuVariant="dark" variant="dark" id="dropdown-basic-button" title="Generi">
+            <DropdownButton className="pt-md-4 pt-0 pb-4 pb-md-0 drop" menuVariant="dark" variant="dark" id="dropdown-basic-button" title="Generi">
                 {error && <small>{error}</small>}
                 {data && data.results.map((genre) => (
                     <Dropdown.Item key={genre.id} as={Link} to={`/games/${genre.slug}`} >{genre.name}</Dropdown.Item>
