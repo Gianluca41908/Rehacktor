@@ -1,37 +1,51 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import supabase from "../supabase/supabase-client"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Searchbar from './Searchbar';
+import SessionContext from '../context/SessionContext';
 
 function Header() {
+    const navigate = useNavigate();
+    const { session } = useContext(SessionContext);
+
+    const signOut = async () => {
+        const {error} = await supabase.auth.signOut()
+        if (error) console.log(error);
+        alert('Signed Out');
+        navigate("/");
+    }
+
     return (
-        <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-dark">
+        <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-dark position-fixed fixed-top">
             <Container>
-                <Navbar.Brand href="#home">Rehacktor</Navbar.Brand>
+                <Navbar.Brand className='text-light fw-bold fs-5' href="#home">Rehacktor</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Account" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Settings
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Logout
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                        <Nav.Link className='text-light fw-bold fs-5' as={Link} to="/">Home</Nav.Link>
+                        {session ? (
+                            <NavDropdown className='text-light fw-bold fs-5' 
+                            title={<span className='text-light'>Hey {session?.user.user_metadata.first_name || 'Hey guest'}</span>} 
+                            id="basic-nav-dropdown">
+                                <NavDropdown.Item as={Link} to="/account">Account</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item onClick={signOut} className='text-danger'>
+                                    Logout
+                                </NavDropdown.Item>
+                            </NavDropdown>)
+                            : null}
+
                         <Searchbar />
                     </Nav>
-                    <Nav>
-                        <Nav.Link as={Link} to="/register" >Login</Nav.Link>
+                    {session ? null : 
+                    (<Nav>
+                        <Nav.Link as={Link} to="/login" >Login</Nav.Link>
                         <Nav.Link as={Link} to="/register" >Register</Nav.Link>
-                    </Nav>
+                    </Nav>)}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

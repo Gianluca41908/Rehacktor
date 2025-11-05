@@ -1,8 +1,10 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import useFetchSolution from "../hook/useFetchSolution";
+import ToggleFavorite from "../components/ToggleFavorite";
+import Chatbox from "../components/Chatbox";
 
-function GamePage(){
+function GamePage() {
     const { id } = useParams();
 
     // const [data, setData] = useState(null);
@@ -35,11 +37,14 @@ function GamePage(){
             {data && <h1 className="text-light text-center py-5 mb-3">{data.name}</h1>}
             <div className="container-fluid">
                 <div className="row justify-content-center">
-                    <div className="col-6 px-0">
+                    <div className="col-6 ps-4">
                         <img className="w-100" src={data && data.background_image} alt="game image" />
+                        {/* <div className="">
+                            <Chatbox data={data && data} />
+                        </div> */}
                     </div>
                     <div className="col-6 px-5 text-light">
-                        <p>Release date: {data && data.released}</p>
+                        <p className="d-inline">Release date: {data && data.released}</p> <ToggleFavorite data={data} />
                         <p>Rating: {data && data.rating}</p>
                         <p>{data && data.description_raw}</p>
                     </div>

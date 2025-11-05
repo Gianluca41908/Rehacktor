@@ -6,7 +6,7 @@ function LazyLoadGameImage({ image }){
         <LazyLoadImage
         alt="game image"
         effect="blur"
-        className="h-100 w-100"
+        className="h-100 w-100 oj"
         wrapperProps={{
             style: {transitionDelay: "0.5s"}
         }}

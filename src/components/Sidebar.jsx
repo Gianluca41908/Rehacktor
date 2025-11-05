@@ -1,8 +1,13 @@
-import GenresDropdown from "./GenresDropdown"
+import GenresDropdown from "./GenresDropdown";
 
-function Sidebar(){
+
+
+
+function Sidebar() {
+
+
     return (
-        <div className="mt-5 col-1 vh-100">
+        <div className="col-12 col-md-2 pt-3 mt-5 d-flex flex-column side" style={{ minHeight: "0", overflowY: "auto" }}>
             <GenresDropdown />
         </div>
     )

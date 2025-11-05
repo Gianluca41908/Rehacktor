@@ -32,12 +32,22 @@ function GenresDropdown() {
 
     return (
         <div>
-            <DropdownButton variant="dark" id="dropdown-basic-button" title="Generi">
+            <DropdownButton className="pt-4 drop" menuVariant="dark" variant="dark" id="dropdown-basic-button" title="Generi">
                 {error && <small>{error}</small>}
                 {data && data.results.map((genre) => (
                     <Dropdown.Item key={genre.id} as={Link} to={`/games/${genre.slug}`} >{genre.name}</Dropdown.Item>
                 ))}
             </DropdownButton>
+            {/* <ul className="pt-3">
+                <li className="list-unstyled text-light fw-bold pb-4">GENERI</li>
+                {data && data.results.map((genre) => (
+                    <li className="list-unstyled text-light pb-3" key={genre.id} >
+                    <Link to={`/games/${genre.slug}`} className="text-decoration-none text-light" >
+                        {genre.name}
+                    </Link>
+                    </li>
+                ))}
+            </ul> */}
         </div>
     )
 }

@@ -22,11 +22,11 @@ function Searchbar(){
                 <input 
                 type="text"
                 name="search"
-                placeholder={ariaInvalid ? "Devi cercare qualcosa" : "Search a game"}
+                placeholder={ariaInvalid ? "Devi cercare qualcosa" : "Cerca un gioco"}
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
                 aria-invalid={ariaInvalid} />
-                <input type="submit" value={'Go'} className="ms-1" />
+                <input type="submit" value={'Cerca'} className="ms-1" />
             </fieldset>
         </form>
     );
