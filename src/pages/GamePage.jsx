@@ -34,16 +34,23 @@ function GamePage() {
     return (
         <div>
             {error && <h1 className="text-center text-danger mb-pers">{error}</h1>}
-            {data && <h1 className="text-light text-center py-5 mb-3">{data.name}</h1>}
+            {data && <h1 className="text-light text-center py-3 py-md-5 mb-0 mb-md-3">{data.name}</h1>}
             <div className="container-fluid">
+                {loading &&
+                    <div className="d-flex justify-content-center py-5 mt-5">
+                        <div className="spinner-border spinner" role="status">
+                            <span className="visually-hidden">Caricamento...</span>
+                        </div>
+                    </div>
+                }
                 <div className="row justify-content-center">
-                    <div className="col-6 ps-4">
+                    <div className="col-12 col-md-6 ps-4">
                         <img className="w-100" src={data && data.background_image} alt="game image" />
                         {/* <div className="">
                             <Chatbox data={data && data} />
                         </div> */}
                     </div>
-                    <div className="col-6 px-5 text-light">
+                    <div className="col-12 col-md-6 px-5 text-light">
                         <p className="d-inline">Release date: {data && data.released}</p> <ToggleFavorite data={data} />
                         <p>Rating: {data && data.rating}</p>
                         <p>{data && data.description_raw}</p>

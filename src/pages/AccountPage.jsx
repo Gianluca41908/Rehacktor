@@ -78,9 +78,9 @@ export default function AccountPage() {
     }
 
     return (
-        <div className="container-fluid px-5 pt-3">
+        <div className="container-fluid px-md-5 pt-md-3">
             <div className="row w-100 justify-content-between">
-                <div className="col-3">
+                <div className="col-12 col-md-3">
                     <h2 className='text-center my-4 pb-2 text-light'>Impostazioni profilo</h2>
                     <form onSubmit={updateProfile} className="form-widget">
                         <Avatar
@@ -134,12 +134,12 @@ export default function AccountPage() {
                     </form>
                 </div>
 
-                <div className="col-9">
+                <div className="col-12 col-md-9">
                     <h2 className='text-center my-4 text-light pb-2'>Preferiti</h2>
                     {favorites.length == 0 && <h3>Non ci sono giochi preferiti</h3>}
                     <div className="row gap-2 justify-content-evenly">
                     {favorites && favorites.map((game) => (
-                            <Card key={game.id} style={{ width: '19rem', height: '18rem' }} className='col-4 px-0 border-link-light border-2'>
+                            <Card key={game.id} style={{ width: '19rem', height: '18rem' }} className='col-12 col-md-4 px-0 border-link-light border-2'>
                                 {/* <Card.Img className='h-40' variant="top" src={game.background_image} alt='game' /> */}
                                 <div className='h-50'>
                                     <LazyLoadGameImage image={game.game_image} className="h-100" />
