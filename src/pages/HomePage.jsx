@@ -14,7 +14,7 @@ function HomePage() {
             <div className="d-flex justify-content-center d-md-none">
                 <GenresDropdown />
             </div>
-            <div className="container-fluid pe-2">
+            <div className="container-fluid pe-">
                 {loading &&
                     <div className="d-flex justify-content-center py-5">
                         <div className="spinner-border spinner" role="status">
