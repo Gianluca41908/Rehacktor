@@ -13,7 +13,7 @@ function Header() {
     const { session } = useContext(SessionContext);
 
     const signOut = async () => {
-        const {error} = await supabase.auth.signOut()
+        const { error } = await supabase.auth.signOut()
         if (error) console.log(error);
         alert('Signed Out');
         navigate("/");
@@ -28,9 +28,9 @@ function Header() {
                     <Nav className="me-auto">
                         <Nav.Link className='text-light fw-bold fs-5' as={Link} to="/">Home</Nav.Link>
                         {session ? (
-                            <NavDropdown className='text-light fw-bold fs-5' 
-                            title={<span className='text-light'>Hey {session?.user.user_metadata.first_name || 'Hey guest'}</span>} 
-                            id="basic-nav-dropdown">
+                            <NavDropdown className='text-light fw-bold fs-5'
+                                title={<span className='text-light'>Hey {session?.user.user_metadata.first_name || 'Hey guest'}</span>}
+                                id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="/account">Account</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={signOut} className='text-danger'>
@@ -39,13 +39,15 @@ function Header() {
                             </NavDropdown>)
                             : null}
 
-                        <Searchbar />
+                        <div className="d-none d-lg-block my-auto">
+                            <Searchbar />
+                        </div>
                     </Nav>
-                    {session ? null : 
-                    (<Nav>
-                        <Nav.Link as={Link} to="/login" >Login</Nav.Link>
-                        <Nav.Link as={Link} to="/register" >Register</Nav.Link>
-                    </Nav>)}
+                    {session ? null :
+                        (<Nav>
+                            <Nav.Link as={Link} to="/login" >Login</Nav.Link>
+                            <Nav.Link as={Link} to="/register" >Register</Nav.Link>
+                        </Nav>)}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import CardGame from "../components/CardGame";
 import useFetchSolution from "../hook/useFetchSolution";
 import GenresDropdown from "../components/GenresDropdown";
+import Searchbar from "../components/Searchbar";
 
 function HomePage() {
 
@@ -14,7 +15,10 @@ function HomePage() {
             <div className="d-flex justify-content-center d-md-none">
                 <GenresDropdown />
             </div>
-            <div className="container-fluid pe-">
+            <div className="d-flex justify-content-center d-md-none">
+                <Searchbar />
+            </div>
+            <div className="container-fluid">
                 {loading &&
                     <div className="d-flex justify-content-center py-5">
                         <div className="spinner-border spinner" role="status">

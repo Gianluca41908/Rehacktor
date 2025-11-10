@@ -17,7 +17,7 @@ function Searchbar(){
     };
 
     return (
-        <form onSubmit={handleSearch} className="ps-5 ms-5 my-auto">
+        <form onSubmit={handleSearch} className="ps-md-5 ms-md-5 my-md-auto pb-3 pb-sm-0">
             <fieldset role="group">
                 <input 
                 type="text"
