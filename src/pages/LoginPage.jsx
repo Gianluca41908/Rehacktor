@@ -102,7 +102,7 @@ export default function LoginPage() {
                 {formErrors.password && <small>{formErrors.password}</small>}
 
                 <br />
-                <button type="submit">Accedi</button>
+                <button className="btn btn-dark" type="submit">Accedi</button>
             </form>
                 </div>
             </div>

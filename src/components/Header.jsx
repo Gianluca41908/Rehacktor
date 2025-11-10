@@ -25,7 +25,7 @@ function Header() {
                 <Navbar.Brand className='text-light fw-bold fs-5' as={Link} to="/">Rehacktor</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto w-100">
                         <Nav.Link className='text-light fw-bold fs-5' as={Link} to="/">Home</Nav.Link>
                         {session ? (
                             <NavDropdown className='text-light fw-bold fs-5'
@@ -39,7 +39,7 @@ function Header() {
                             </NavDropdown>)
                             : null}
 
-                        <div className="d-none d-lg-block my-auto">
+                        <div className="mx-auto d-none d-lg-block my-auto">
                             <Searchbar />
                         </div>
                     </Nav>
